@@ -8,20 +8,24 @@ function UsernameForm({onSubmitUsername}) {
 
   const handleSubmit = event => {
     event.preventDefault()
-    const {
-      target: {
-        elements: [{value}],
-      },
-    } = event
-    setUsername(value)
     onSubmitUsername(username)
+  }
+
+  const handleChange = event => {
+    const {value} = event.target
+    setUsername(value.toLowerCase())
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="usernameInput">Username:</label>
-        <input id="usernameInput" type="text" />
+        <input
+          id="usernameInput"
+          type="text"
+          onChange={handleChange}
+          value={username}
+        />
       </div>
       <button type="submit">Submit</button>
     </form>

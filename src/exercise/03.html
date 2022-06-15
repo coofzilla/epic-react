@@ -9,8 +9,11 @@
   <script type="text/babel">
     const className = 'container'
     const children = 'Hello World'
-    const props = {className, children}
-    const element = <div {...props}></div>
+    const id = 'thingy'
+    const allTheStuff = {className, children, id}
+    //can be props or whatever u name it
+    //applys through spread
+    const element = <div {...allTheStuff}></div>
 
     ReactDOM.createRoot(document.getElementById('root')).render(element)
   </script>
